@@ -1,16 +1,16 @@
-EN | [RU]()
+[EN]() | RU
 
-# [Diary app]()
-description
+# [Приложение дневник]()
+описание
 
 ![screenshot]()
 
-Created based on a project from an educational internship in
+Создано на основе проекта учебной стажировки в
 <a href="https://preax.ru" target="_blank" rel="noreferrer">
   <img src="./image/icon/preax.svg" height="20" alt="HTML5" title="HTML5"/>
 </a>
 
-**Initial conditions**: use the stack 
+**Начальные условия**: использовать стек 
 <a href="https://developer.mozilla.org/en-US/docs/Glossary/html5" target="_blank" rel="noreferrer">
   <img src="./image/icon/html5.svg" width="20" height="20" alt="HTML5" title="HTML5"/>
 </a>
@@ -21,34 +21,34 @@ Created based on a project from an educational internship in
   <img src="./image/icon/js.svg" width="20" height="20" alt="JavaScript" title="JavaScript"/>
 </a>
 <a href="https://react.dev" target="_blank" rel="noreferrer">
-    <img src="./image/icon/react.svg" width="20" height="20" alt="webpack" title="webpack"/>
+  <img src="./image/icon/react.svg" width="20" height="20" alt="webpack" title="webpack"/>
 </a>
-without additional libraries.
+без дополнительных библиотек.
 
-Added
+Добавил
 <a href="https://www.typescriptlang.org" target="_blank" rel="noreferrer">
   <img src="./image/icon/ts.svg" width="20" height="20" alt="webpack" title="webpack"/>
 </a>
-to the initial conditions for practice.
+к начальным условиям для практики.
 
-## Install for development
-Developed using Node.js v20.4.0.
+## Установка для разработки
+Во время разработки использовалась Node.js v20.4.0.
 
-Clone the repository locally.
+Скопируйте репозиторий локально.
 ```
 git clone https://github.com/zapupenec/Weather_app.git
 ```
-Install the dependencies.
+Установите зависимости.
 ```
 make install
 ```
-Runs the app in the development mode.
+Запустите приложения в режиме разработки.
 ```
 make start
 ```
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Откройте [http://localhost:3000](http://localhost:3000), чтобы просмотреть его в браузере.
 
-Builds the app for production.
+Команда для сборки продакшена.
 ```
 make build
 ```
