@@ -1,4 +1,4 @@
-EN | [RU]()
+EN | [RU](https://github.com/zapupenec/diary_app/blob/master/README-ru.md)
 
 # [Diary app]()
 description
@@ -10,7 +10,7 @@ Created based on a project from an educational internship in
   <img src="./image/icon/preax.svg" height="20" alt="HTML5" title="HTML5"/>
 </a>
 
-**Initial conditions**: use the stack 
+**Initial conditions**: stack 
 <a href="https://developer.mozilla.org/en-US/docs/Glossary/html5" target="_blank" rel="noreferrer">
   <img src="./image/icon/html5.svg" width="20" height="20" alt="HTML5" title="HTML5"/>
 </a>

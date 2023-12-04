@@ -1,8 +1,9 @@
-import styles from './app.module.css';
+import { FC } from 'react';
 
-export const App = () => (
-  <div className={styles.app}>
-    <div className={styles.container}>
-    </div>
-  </div>
+import { Header } from './components';
+
+export const App: FC = () => (
+  <>
+    <Header />
+  </>
 );

@@ -1,4 +1,4 @@
-[EN]() | RU
+[EN](https://github.com/zapupenec/diary_app) | RU
 
 # [Приложение дневник]()
 описание
@@ -10,7 +10,7 @@
   <img src="./image/icon/preax.svg" height="20" alt="HTML5" title="HTML5"/>
 </a>
 
-**Начальные условия**: использовать стек 
+**Начальные условия**: стек 
 <a href="https://developer.mozilla.org/en-US/docs/Glossary/html5" target="_blank" rel="noreferrer">
   <img src="./image/icon/html5.svg" width="20" height="20" alt="HTML5" title="HTML5"/>
 </a>

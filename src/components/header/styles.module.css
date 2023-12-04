@@ -1,0 +1,20 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 60px;
+  gap: 0 120px;
+  padding-top: 40px;
+}
+
+.header__search {
+  display: flex;
+  gap: 20px;
+}
+
+.search__input {
+  max-width: 550px;
+}
+
+.search__selector {
+  width: 100px;
+}

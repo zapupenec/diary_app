@@ -1,0 +1,24 @@
+.button {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 100%;
+  background-image: var(--button);
+  border-radius: var(--border-radius);
+  padding: 0 20px;
+  box-shadow: var(--shadow);
+}
+
+.button:focus,
+.button:hover {
+  outline: 2px solid var(--text);
+}
+
+.button > svg {
+  height: 20px;
+  width: 20px;
+}

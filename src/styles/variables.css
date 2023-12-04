@@ -1,0 +1,9 @@
+:root {
+  --background: #fdfcf3;
+  --background-white: #fff;
+  --text: #1e2022;
+  --hint: #acacac;
+  --button: linear-gradient(137deg, #fff76a 31.13%, #ffce89 100%);
+  --shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+}

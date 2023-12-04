@@ -1,0 +1,31 @@
+.logo {
+  height: 60px;
+  width: 227px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  background-color: transparent;
+  border-radius: var(--border-radius);
+}
+
+.logo:focus,
+.logo:hover {
+  outline: 2px solid var(--text);
+}
+
+.icon {
+  height: 60px;
+  width: 60px;
+  padding: 13px;
+  background-image: var(--button);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.text {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  text-shadow: var(--shadow);
+}
