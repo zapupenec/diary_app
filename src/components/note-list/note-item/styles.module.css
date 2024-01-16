@@ -1,0 +1,97 @@
+.container {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.container:focus {
+  outline: 2px solid var(--text);
+}
+
+.boxContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.moodStatus {
+  font-size: 18px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--bg-note);
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--bg-note);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.title,
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-orient: vertical;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.title {
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 900;
+  flex-grow: 1;
+}
+
+.description {
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+.date {
+  color: var(--hint-2);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}

@@ -3,7 +3,7 @@
   grid-template-columns: auto 1fr auto;
   grid-template-rows: 60px;
   gap: 0 120px;
-  padding-top: 40px;
+  margin-top: 40px;
 }
 
 .header__search {
@@ -12,9 +12,19 @@
 }
 
 .search__input {
+  min-width: 550px;
   max-width: 550px;
 }
 
 .search__selector {
-  width: 100px;
+  min-width: 100px;
+}
+
+.header__btn-edit {
+  width: 225px;
+}
+
+.header__btn-edit svg {
+  height: 24px;
+  width: 24px;
 }

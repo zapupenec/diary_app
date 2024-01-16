@@ -19,7 +19,7 @@ export const Header: FC = () => {
             defaultValue=""
           />
         </div>
-        <Button>
+        <Button className={styles['header__btn-edit']}>
           <Icon name="pen" />
           Добавить запись
         </Button>
