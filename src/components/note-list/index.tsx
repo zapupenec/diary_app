@@ -1,10 +1,11 @@
-import { FC, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
-import styles from './styles.module.css';
+import styles from './note-list.module.css';
 import { NotesItem } from './note-item';
 import notes from '../../mock/notes.json';
 
-interface INotesItemProps extends HTMLAttributes<HTMLUListElement> {}
+interface INotesItemProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {}
 
 export const NotesList: FC<INotesItemProps> = () => {
   return (

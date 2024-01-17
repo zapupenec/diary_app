@@ -1,4 +1,4 @@
-.logo {
+.container {
   height: 60px;
   width: 227px;
   display: flex;
@@ -9,8 +9,8 @@
   border-radius: var(--border-radius);
 }
 
-.logo:focus,
-.logo:hover {
+.container:focus,
+.container:hover {
   outline: 2px solid var(--text);
 }
 

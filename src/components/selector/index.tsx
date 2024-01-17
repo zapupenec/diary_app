@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useRef, useState } from 'react';
 
-import styles from './styles.module.css';
+import styles from './selector.module.css';
 import { clsx } from 'lib';
 import { Icon } from 'components';
 import { Option } from './option';
@@ -57,20 +57,20 @@ export const Selector: FC<ISelectorProps> = ({
 
   return (
     <div
-      className={clsx(className, styles.selector)}
+      className={clsx(className, styles.container)}
       onClick={handleClick}
       ref={selectortRef}
       role="button"
       tabIndex={0}
     >
-      <div className={styles.selector__placeholder}>
+      <div className={styles.placeholder}>
         {value === defaultValue ? placeholder : value}
       </div>
-      <div className={styles.selector__arrow}>
+      <div className={styles.arrow}>
         <Icon name="chevron-down" />
       </div>
       {isOpen && (
-        <ul className={styles.selector__options}>
+        <ul className={styles.options}>
           {[placeholder, ...displayValues].map((displayValues, i) => {
             const key = i === 0 ? 'defaultValue' : displayValues;
             return (

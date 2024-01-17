@@ -1,16 +1,16 @@
-.option {
+.container {
   min-height: 30px;
   text-align: center;
   font-size: 18px;
   line-height: 20px;
 }
 
-.option > svg {
+.container > svg {
   width: 24px;
   height: 24px;
 }
 
-.option:hover,
-.option:focus {
+.container:hover,
+.container:focus {
   background-color: rgba(0, 0, 0, 0.1);
 }

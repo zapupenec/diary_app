@@ -1,0 +1,87 @@
+.container {
+  padding: 125px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.btnClose {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+
+.btnClose:hover,
+.btnClose:focus {
+  transform: scale(1.5);
+}
+
+.content {
+  padding: 30px 40px;
+  border-radius: 10px;
+  background: var(--modal-bg);
+  box-shadow: var(--shadow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--modal-bg);
+  box-shadow: var(--shadow);
+}
+
+.header {
+  display: flex;
+  margin-right: 60px;
+}
+
+.title {
+  color: var(--text);
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.emoji {
+  margin-left: 20px;
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  overflow: auto;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.date {
+  color: var(--hint-2);
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.descriptionText {
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 26px;
+}
+
+.imageContainer {
+  flex: 0 0 40%;
+}
+
+.image {
+  width: 100%;
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}

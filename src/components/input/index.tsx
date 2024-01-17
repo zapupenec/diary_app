@@ -1,10 +1,10 @@
-import { DetailedHTMLProps, FC, useEffect, useRef } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes, useEffect, useRef } from 'react';
 
-import styles from './styles.module.css';
+import styles from './input.module.css';
 import { clsx } from 'lib';
 
 interface IInputProps
-  extends DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
+  extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
 export const Input: FC<IInputProps> = ({ className, ...props }) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -14,5 +14,5 @@ export const Input: FC<IInputProps> = ({ className, ...props }) => {
     }
   }, []);
 
-  return <input ref={inputRef} className={clsx(className, styles.input)} {...props} />;
+  return <input ref={inputRef} className={clsx(className, styles.container)} {...props} />;
 };

@@ -1,0 +1,20 @@
+.background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: rgba(var(--modal-overlay-color), 0);
+  backdrop-filter: blur(0px);
+  cursor: pointer;
+
+  transition-property: background-color, backdrop-filter;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+
+.shown {
+  background-color: rgba(var(--modal-overlay-color), 0.7);
+  backdrop-filter: var(--modal-overlay-blur);
+}

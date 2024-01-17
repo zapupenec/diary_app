@@ -1,12 +1,12 @@
-import { DetailedHTMLProps, FC } from 'react';
-import styles from './styles.module.css';
+import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
+import styles from './button.module.css';
 import { clsx } from 'lib';
 
 interface IButtonProps
-  extends DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {}
+  extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {}
 
 export const Button: FC<IButtonProps> = ({ children, className, ...props }) => (
-  <button className={clsx(className, styles.button)} {...props}>
+  <button className={clsx(className, styles.container)} {...props}>
     {children}
   </button>
 );

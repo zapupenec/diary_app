@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, Dispatch, FC, useEffect, useRef } from 'react';
 
-import styles from './styles.module.css';
+import styles from './option.module.css';
 
 interface IOptionProps
   extends DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
@@ -34,7 +34,7 @@ export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, setVa
   }, [setValue, value]);
 
   return (
-    <li className={styles.option} onClick={handleClick(value)} tabIndex={0} ref={optionRef}>
+    <li className={styles.container} onClick={handleClick(value)} tabIndex={0} ref={optionRef}>
       {displayValue}
     </li>
   );

@@ -1,4 +1,4 @@
-.button {
+.container {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -14,12 +14,12 @@
   box-shadow: var(--shadow);
 }
 
-.button:focus,
-.button:hover {
+.container:focus,
+.container:hover {
   outline: 2px solid var(--text);
 }
 
-.button > svg {
+.container > svg {
   height: 20px;
   width: 20px;
 }

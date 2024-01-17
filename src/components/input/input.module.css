@@ -1,4 +1,4 @@
-.input {
+.container {
   height: 100%;
   width: 100%;
   background-color: var(--background-white);
@@ -12,11 +12,11 @@
   justify-content: center;
 }
 
-.input:focus,
-.input:hover {
+.container:focus,
+.container:hover {
   outline: 2px solid var(--text);
 }
 
-.input::placeholder {
+.container::placeholder {
   color: var(--hint);
 }

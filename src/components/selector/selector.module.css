@@ -1,4 +1,4 @@
-.selector {
+.container {
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -13,12 +13,12 @@
   cursor: pointer;
 }
 
-.selector:focus,
-.selector:hover {
+.container:focus,
+.container:hover {
   outline: 2px solid var(--text);
 }
 
-.selector__arrow {
+.arrow {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@
   width: 20px;
 }
 
-.selector__placeholder {
+.placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,12 +35,12 @@
   line-height: 1;
 }
 
-.selector__placeholder > svg {
+.placeholder > svg {
   width: 24px;
   height: 24px;
 }
 
-.selector__options {
+.options {
   padding: 10px 0;
   background-color: var(--background-white);
   border-radius: 10px;

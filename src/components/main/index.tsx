@@ -1,14 +1,12 @@
 import { FC } from 'react';
 
-import styles from './styles.module.css';
-import { Container, NotesList } from 'components';
+import styles from './main.module.css';
+import { NotesList } from 'components';
 
 export const Main: FC = () => {
   return (
-    <Container>
-      <section className={styles.main}>
-        <NotesList />
-      </section>
-    </Container>
+    <section className={styles.container}>
+      <NotesList />
+    </section>
   );
 };

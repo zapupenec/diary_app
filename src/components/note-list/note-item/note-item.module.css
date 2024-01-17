@@ -6,20 +6,12 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  align-items: flex-end;
 }
 
 .container:focus {
   outline: 2px solid var(--text);
-}
-
-.boxContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
 }
 
 .moodStatus {
@@ -37,6 +29,7 @@
 }
 
 .content {
+  position: relative;
   width: 100%;
   padding: 10px 15px;
   background-color: var(--bg-note);
@@ -67,7 +60,7 @@
 .title {
   line-clamp: 1;
   -webkit-line-clamp: 1;
-  color: var(--text-color);
+  color: var(--text);
   font-size: 18px;
   font-weight: 900;
   flex-grow: 1;
@@ -76,9 +69,9 @@
 .description {
   line-clamp: 2;
   -webkit-line-clamp: 2;
-
-  color: var(--text-color);
+  font-size: 14px;
   font-weight: 300;
+  color: var(--text);
 }
 
 .date {
@@ -87,11 +80,20 @@
   font-weight: 300;
 }
 
-.image {
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  object-position: top center;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s;
+}
+
+.container:hover > .background-image,
+.container:active > .background-image,
+.container:focus > .background-image {
+  transform: scale(1.25);
 }
