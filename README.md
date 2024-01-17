@@ -1,6 +1,6 @@
 EN | [RU](https://github.com/zapupenec/diary_app/blob/master/README-ru.md)
 
-# [Diary app]()
+# [Diary app](https://diary-app-self.vercel.app)
 description
 
 ![screenshot]()
@@ -36,7 +36,7 @@ Developed using Node.js v20.4.0.
 
 Clone the repository locally.
 ```
-git clone https://github.com/zapupenec/Weather_app.git
+git clone https://github.com/zapupenec/diary_app.git
 ```
 Install the dependencies.
 ```

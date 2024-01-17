@@ -1,6 +1,6 @@
 [EN](https://github.com/zapupenec/diary_app) | RU
 
-# [Приложение дневник]()
+# [Приложение дневник](https://diary-app-self.vercel.app)
 описание
 
 ![screenshot]()
@@ -36,7 +36,7 @@
 
 Скопируйте репозиторий локально.
 ```
-git clone https://github.com/zapupenec/Weather_app.git
+git clone https://github.com/zapupenec/diary_app.git
 ```
 Установите зависимости.
 ```
