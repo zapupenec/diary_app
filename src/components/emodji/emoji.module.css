@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.container::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-white);
+  opacity: 0.9;
+  backdrop-filter: blur(5px);
+  border-radius: 50%;
+}
+
+.small {
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+}
+
+.big {
+  font-size: 48px;
+  width: 100px;
+  height: 100px;
+}
+
+.content {
+  line-height: 0;
+  position: relative;
+}

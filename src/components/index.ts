@@ -1,4 +1,5 @@
 export * from './button';
+export * from './emodji';
 export * from './header';
 export * from './icon';
 export * from './input';

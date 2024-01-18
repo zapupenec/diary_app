@@ -44,10 +44,6 @@
   font-weight: 900;
 }
 
-.emoji {
-  margin-left: 20px;
-}
-
 .body {
   display: flex;
   justify-content: space-between;
@@ -76,6 +72,13 @@
 
 .imageContainer {
   flex: 0 0 40%;
+  position: relative;
+}
+
+.moodStatus {
+  position: absolute;
+  top: 40px;
+  right: 40px;
 }
 
 .image {

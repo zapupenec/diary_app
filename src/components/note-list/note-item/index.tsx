@@ -4,6 +4,7 @@ import styles from './note-item.module.css';
 import { getDisplayDate } from 'lib';
 import { TNote } from 'types';
 import { useModal } from 'contexts/modal';
+import { Emoji } from 'components';
 
 interface INotesItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   note: TNote;
@@ -31,10 +32,12 @@ export const NotesItem: FC<INotesItemProps> = ({ note }) => {
       tabIndex={0}
       onClick={showModalNote}
       onKeyDown={handleKeyDown}
-      aria-label="читать заметку полностью"
+      aria-label="открыть заметку"
     >
       <div className={styles['background-image']} style={{ backgroundImage: `url(${foto})` }} />
-      <span className={styles.moodStatus}>{emoji}</span>
+      <div className={styles.moodStatus}>
+        <Emoji emoji={emoji} size="small" />
+      </div>
       <div className={styles.content}>
         <div className={styles.titleRow}>
           <h3 className={styles.title}>{title}</h3>

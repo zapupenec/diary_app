@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
 import styles from './modal-note.module.css';
-import { Icon } from 'components/icon';
+import { Emoji, Icon } from 'components';
 import { useModal } from 'contexts/modal';
 import { getDisplayDate } from 'lib';
 
@@ -11,7 +11,7 @@ interface IModalNoteProps
 export const ModalNote: FC<IModalNoteProps> = () => {
   const { extra, hideModal } = useModal();
   const { title, note: description, date, foto, emoji } = extra.note;
-  const { dateTime, dateDisplay } = getDisplayDate(date);
+  const { dateTime, dateDisplay } = getDisplayDate(date, 'long');
 
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
@@ -22,17 +22,19 @@ export const ModalNote: FC<IModalNoteProps> = () => {
         <div className={styles.header}>
           <h2 className={styles.title} id="modal-header">
             {title}
-            <span className={styles.emoji}>{emoji}</span>
           </h2>
         </div>
-        <div className={styles.body}>
-          <div className={styles.description} id="modal-content">
+        <div className={styles.body} id="modal-content">
+          <div className={styles.description}>
             <time dateTime={dateTime} className={styles.date}>
               {dateDisplay}
             </time>
             <div className={styles.descriptionText}>{description}</div>
           </div>
           <div className={styles.imageContainer}>
+            <div className={styles.moodStatus}>
+              <Emoji emoji={emoji} size="big" />
+            </div>
             <img src={foto} className={styles.image} alt={title} />
           </div>
         </div>
