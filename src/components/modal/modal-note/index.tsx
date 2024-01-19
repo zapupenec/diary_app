@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
 import styles from './modal-note.module.css';
-import { Emoji, Icon } from 'components';
+import { Emoji, Icon, ImgWithLoader } from 'components';
 import { useModal } from 'contexts/modal';
 import { getDisplayDate } from 'lib';
 
@@ -35,7 +35,7 @@ export const ModalNote: FC<IModalNoteProps> = () => {
             <div className={styles.moodStatus}>
               <Emoji emoji={emoji} size="big" />
             </div>
-            <img src={foto} className={styles.image} alt={title} />
+            <ImgWithLoader className={styles.image} src={foto} alt={title} />
           </div>
         </div>
       </div>

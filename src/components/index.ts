@@ -2,6 +2,7 @@ export * from './button';
 export * from './emodji';
 export * from './header';
 export * from './icon';
+export * from './img-with-loader';
 export * from './input';
 export * from './logo';
 export * from './main';

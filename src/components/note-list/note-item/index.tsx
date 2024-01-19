@@ -4,7 +4,7 @@ import styles from './note-item.module.css';
 import { getDisplayDate } from 'lib';
 import { TNote } from 'types';
 import { useModal } from 'contexts/modal';
-import { Emoji } from 'components';
+import { Emoji, ImgWithLoader } from 'components';
 
 interface INotesItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   note: TNote;
@@ -13,7 +13,6 @@ interface INotesItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>,
 export const NotesItem: FC<INotesItemProps> = ({ note }) => {
   const { emoji, foto, title, date, note: description } = note;
   const { dateTime, dateDisplay } = getDisplayDate(date);
-
   const { showModal } = useModal();
 
   const showModalNote = () => {
@@ -34,7 +33,7 @@ export const NotesItem: FC<INotesItemProps> = ({ note }) => {
       onKeyDown={handleKeyDown}
       aria-label="открыть заметку"
     >
-      <div className={styles['background-image']} style={{ backgroundImage: `url(${foto})` }} />
+      <ImgWithLoader className={styles['background-image']} src={foto} alt={title} />
       <div className={styles.moodStatus}>
         <Emoji emoji={emoji} size="small" />
       </div>
