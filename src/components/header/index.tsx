@@ -20,7 +20,7 @@ export const Header: FC = () => {
       </div>
       <Button className={styles['btn-edit']}>
         <Icon name="pen" />
-        Добавить запись
+        <span>Добавить запись</span>
       </Button>
     </header>
   );

@@ -19,7 +19,8 @@
   outline: 2px solid var(--text);
 }
 
-.container > svg {
-  height: 20px;
-  width: 20px;
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 10px;
+  }
 }

@@ -1,6 +1,4 @@
 .container {
-  height: 60px;
-  width: 227px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,9 +13,10 @@
 }
 
 .icon {
-  height: 60px;
-  width: 60px;
-  padding: 13px;
+  --size: 60px;
+  height: var(--size);
+  width: var(--size);
+  padding: calc(13 / 60 * var(--size));
   background-image: var(--button);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
@@ -28,4 +27,18 @@
   font-weight: 700;
   color: var(--text);
   text-shadow: var(--shadow);
+}
+
+@media (max-width: 1023px) {
+  .container {
+    gap: 12px;
+  }
+
+  .icon {
+    --size: 40px;
+  }
+
+  .text {
+    font-size: 24px;
+  }
 }

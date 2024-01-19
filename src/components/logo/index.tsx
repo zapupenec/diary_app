@@ -13,9 +13,9 @@ export const Logo: FC<ILogoProps> = () => {
 
   return (
     <a href="/" className={styles.container} onClick={handleClick}>
-      <span className={styles.icon}>
+      <div className={styles.icon}>
         <Icon name="trees" />
-      </span>
+      </div>
       <span className={styles.text}>Дневник</span>
     </a>
   );

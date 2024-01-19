@@ -73,19 +73,19 @@
   flex-grow: 1;
 }
 
+.date {
+  color: var(--hint-2);
+  font-size: 14px;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
 .description {
   line-clamp: 2;
   -webkit-line-clamp: 2;
   font-size: 14px;
   font-weight: 300;
   color: var(--text);
-}
-
-.date {
-  color: var(--hint-2);
-  font-size: 14px;
-  font-weight: 300;
-  white-space: nowrap;
 }
 
 .background-image {
@@ -104,4 +104,11 @@
 .container:active > .background-image,
 .container:focus > .background-image {
   transform: scale(1.25);
+}
+
+@media (max-width: 1023px) {
+  .date,
+  .description {
+    font-size: 12px;
+  }
 }
