@@ -11,7 +11,9 @@
   background-image: var(--button);
   border-radius: var(--border-radius);
   padding: 0 20px;
-  box-shadow: var(--shadow);
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
+  box-shadow: var(--shadow)
 }
 
 .container:focus,
@@ -19,8 +21,13 @@
   outline: 2px solid var(--text);
 }
 
+@media (max-width: 1439px) {
+
+}
+
 @media (max-width: 1023px) {
   .container {
+    font-size: 14px;
     padding: 0 10px;
   }
 }

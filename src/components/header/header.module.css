@@ -1,14 +1,8 @@
 .container {
   display: grid;
   grid-template-columns: min-content 1fr min-content;
-  grid-template-rows: 60px;
+  grid-auto-rows: 60px;
   gap: 0 120px;
-  padding: 40px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 1;
   background-color: var(--background);
 }
 
@@ -34,7 +28,6 @@
   .container {
     gap: 40px;
     grid-template-columns: min-content min-content;
-    grid-template-rows: 60px 60px;
     justify-content: space-between;
   }
 
@@ -49,7 +42,7 @@
   .container {
     padding: 20px;
     gap: 20px;
-    grid-template-rows: 40px 40px;
+    grid-auto-rows: 40px;
   }
 
   .btn-edit {

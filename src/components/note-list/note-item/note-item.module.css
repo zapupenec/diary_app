@@ -2,6 +2,8 @@
   height: 100%;
   width: 100%;
   border-radius: 10px;
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;

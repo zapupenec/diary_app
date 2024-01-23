@@ -19,6 +19,8 @@
   padding: calc(13 / 60 * var(--size));
   background-image: var(--button);
   border-radius: var(--border-radius);
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
 }
 

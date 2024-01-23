@@ -1,10 +1,11 @@
-import { Loader } from './loader';
-import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useState } from 'react';
+import { DetailedHTMLProps, FC, ImgHTMLAttributes, useEffect, useState } from 'react';
 
 import styles from './img-with-loader.module.css';
+import { Loader } from './loader';
 import { clsx } from 'lib';
 
-interface IImgWithLoaderProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface IImgWithLoaderProps
+  extends DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> {
   src: string;
   alt: string;
 }
@@ -21,7 +22,7 @@ export const ImgWithLoader: FC<IImgWithLoaderProps> = ({ className, src, alt, ..
 
   return (
     <div className={clsx(className, styles.container)}>
-      {!url ? <Loader /> : <img className={styles.image} src={url} alt={alt} />}
+      {!url ? <Loader /> : <img className={styles.image} src={url} alt={alt} {...props} />}
     </div>
   );
 };

@@ -1,17 +1,24 @@
 .container {
-  height: 100%;
+  padding: 20px;
   width: 100%;
-  background-color: var(--background-white);
+  resize: none;
+  border: none;
+  overflow: hidden;
   border-radius: var(--border-radius);
+  background: var(--background-white);
   -webkit-box-shadow: var(--shadow);
   -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
-  padding: 0 20px;
-
   font-size: 18px;
   font-weight: 300;
-  display: flex;
-  justify-content: center;
+  color: var(--text);
+  transition: height 0.5s ease-in-out;
+}
+
+.container::placeholder {
+  color: var(--hint);
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .container:focus,
@@ -19,13 +26,9 @@
   outline: 2px solid var(--text);
 }
 
-.container::placeholder {
-  color: var(--hint);
-}
-
 @media (max-width: 1023px) {
   .container {
-    padding: 0 10px;
-    font-size: 12px;
+    padding: 12px;
+    font-size: 14px;
   }
 }

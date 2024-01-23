@@ -1,0 +1,31 @@
+.container {
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  gap: 40px;
+}
+
+.form {
+  display: flex;
+  gap: 20px;
+}
+
+.submit-btn {
+  width: 60px;
+}
+
+.submit-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+@media (max-width: 1023px) {
+  .container {
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    gap: 20px;
+  }
+
+  .submit-btn {
+    width: 40px;
+  }
+}

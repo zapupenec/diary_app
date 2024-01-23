@@ -26,6 +26,8 @@
   padding: 30px 40px;
   border-radius: 10px;
   background: var(--modal-bg);
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
   position: relative;
 
@@ -80,6 +82,8 @@
   min-height: 180px;
   border-radius: 10px;
   overflow: hidden;
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
 }
 

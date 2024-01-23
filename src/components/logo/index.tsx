@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, DetailedHTMLProps, FC, MouseEvent } from 'react';
+import { AnchorHTMLAttributes, DetailedHTMLProps, FC } from 'react';
 
 import styles from './logo.module.css';
 import { Icon } from 'components/icon';
@@ -6,13 +6,9 @@ import { Icon } from 'components/icon';
 interface ILogoProps
   extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {}
 
-export const Logo: FC<ILogoProps> = () => {
-  const handleClick = (e: MouseEvent) => {
-    e.preventDefault();
-  };
-
+export const Logo: FC<ILogoProps> = (props) => {
   return (
-    <a href="/" className={styles.container} onClick={handleClick}>
+    <a href="/" className={styles.container} {...props}>
       <div className={styles.icon}>
         <Icon name="trees" />
       </div>

@@ -1,9 +1,9 @@
+import { FC, memo, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useEffect, useRef, useState } from 'react';
 
+import styles from './modal.module.css';
 import { useModal } from 'contexts/modal';
 import { Overlay } from './overlay';
-import styles from './modal.module.css';
 import { ModalNote } from './modal-note';
 import { AnimationForContent } from './animation-for-content';
 
@@ -12,7 +12,7 @@ const modals = {
   note: ModalNote,
 };
 
-export const Modal = () => {
+export const Modal: FC = memo(() => {
   const { isMounted, hideModal, type } = useModal();
 
   // создаем root-modal для портала
@@ -110,4 +110,4 @@ export const Modal = () => {
     ),
     container,
   );
-};
+});
