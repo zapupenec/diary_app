@@ -1,28 +1,43 @@
-import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react";
+import {
+  Dispatch,
+  FC,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 
 type TPageName = 'note-list' | 'add-note';
 
-interface IInitialState {
-  currentPage: TPageName,
-  setCurrentPage: Dispatch<SetStateAction<TPageName>>,
+interface IRouterContext {
+  currentPage: TPageName;
+  setCurrentPage: Dispatch<SetStateAction<TPageName>>;
 }
 
-const RouterContext = createContext<IInitialState>({
-  currentPage: 'note-list',
+const initialContext: IRouterContext = {
+  currentPage: 'add-note',
+  // currentPage: 'note-list',
   setCurrentPage: () => {},
-});
+};
 
-export const RouterProvider = ({ children }: { children: ReactNode}) => {
-  const [currentPage, setCurrentPage] = useState<TPageName>('note-list');
+const RouterContext = createContext<IRouterContext>(initialContext);
+
+export const RouterProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const [currentPage, setCurrentPage] = useState<IRouterContext['currentPage']>(
+    initialContext.currentPage,
+  );
 
   return (
-    <RouterContext.Provider value={{
-      currentPage,
-      setCurrentPage,
-    }}>
+    <RouterContext.Provider
+      value={{
+        currentPage,
+        setCurrentPage,
+      }}
+    >
       {children}
     </RouterContext.Provider>
-  )
-}
+  );
+};
 
 export const useRouter = () => useContext(RouterContext);

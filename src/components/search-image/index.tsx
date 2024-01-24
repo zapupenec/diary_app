@@ -1,15 +1,23 @@
-import styles from './search-image.module.css';
+import { FC, FormEvent } from 'react';
 
-import notes from '../../mock/notes.json';
+import styles from './search-image.module.css';
+import notes from 'mock/notes.json';
 import { Button, Icon, ImagesList, Input } from 'components';
-import { FormEvent } from 'react';
+
+interface ISearchImageProps {
+  selectedImg: string;
+  onChangeImage: (value: string) => void;
+}
 
 const images = notes.map((item) => ({
-  img: item.foto,
+  url: item.imageUrl,
   id: item.id,
 }));
 
-export const SearchImage = () => {
+export const SearchImage: FC<ISearchImageProps> = ({
+  onChangeImage = () => {},
+  selectedImg = '',
+}) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
   };
@@ -22,7 +30,7 @@ export const SearchImage = () => {
           <Icon name="search" />
         </Button>
       </form>
-      <ImagesList images={images} />
+      <ImagesList images={images} onClickItem={onChangeImage} selectedImg={selectedImg} />
     </div>
   );
 };

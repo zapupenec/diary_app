@@ -7,9 +7,11 @@ import { Option } from './option';
 
 interface ISelectorProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   placeholder: any;
-  defaultValue: string | number;
-  values: (string | number)[];
-  displayValues: (string | number)[];
+  defaultValue: string;
+  values: string[];
+  displayValues: string[];
+  isValid?: boolean;
+  onChangeValue?: (value: string) => void;
 }
 
 export const Selector: FC<ISelectorProps> = ({
@@ -18,6 +20,8 @@ export const Selector: FC<ISelectorProps> = ({
   defaultValue,
   values,
   displayValues,
+  isValid = true,
+  onChangeValue = () => {},
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState(defaultValue);
@@ -29,6 +33,11 @@ export const Selector: FC<ISelectorProps> = ({
       return;
     }
     setIsOpen(true);
+  };
+
+  const hadnleClickOption = (currValue: string) => {
+    setValue(currValue);
+    onChangeValue(currValue);
   };
 
   useEffect(() => {
@@ -57,15 +66,13 @@ export const Selector: FC<ISelectorProps> = ({
 
   return (
     <div
-      className={clsx(className, styles.container)}
+      className={clsx(className, styles.container, isValid ? '' : styles.invalid)}
       onClick={handleClick}
       ref={selectortRef}
       role="button"
       tabIndex={0}
     >
-      <div className={styles.placeholder}>
-        {value === defaultValue ? placeholder : value}
-      </div>
+      <div className={styles.placeholder}>{value === defaultValue ? placeholder : value}</div>
       <div className={styles.arrow}>
         <Icon name="chevron-down" />
       </div>
@@ -77,7 +84,7 @@ export const Selector: FC<ISelectorProps> = ({
               <Option
                 key={key}
                 setIsOpen={setIsOpen}
-                setValue={setValue}
+                onClickOption={hadnleClickOption}
                 displayValue={displayValues}
                 value={i === 0 ? defaultValue : values[i - 1]}
               />

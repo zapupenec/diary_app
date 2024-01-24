@@ -1,8 +1,11 @@
-export type TNote = {
-  id: number;
+export type TNoteData = {
   title: string;
-  note: string;
+  description: string;
   date: string;
-  foto: string;
+  imageUrl: string;
   emoji: string;
+};
+
+export type TNote = TNoteData & {
+  id: number;
 };

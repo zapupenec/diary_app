@@ -4,17 +4,17 @@ import styles from './option.module.css';
 
 interface IOptionProps
   extends DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement> {
-  displayValue: string | number;
-  value: string | number;
+  displayValue: string;
+  value: string;
   setIsOpen: Dispatch<React.SetStateAction<boolean>>;
-  setValue: Dispatch<React.SetStateAction<string | number>>;
+  onClickOption: (value: string) => void;
 }
 
-export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, setValue }) => {
+export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, onClickOption }) => {
   const optionRef = useRef<HTMLLIElement>(null);
 
   const handleClick = (selectedValue: any) => () => {
-    setValue(selectedValue);
+    onClickOption(selectedValue);
     setIsOpen(false);
   };
 
@@ -23,7 +23,7 @@ export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, setVa
     if (!current) return;
     const handleEnterKeyDown = (event: any) => {
       if (document.activeElement === current && event.code === 'Enter') {
-        setValue(value);
+        onClickOption(value);
       }
     };
 
@@ -31,7 +31,7 @@ export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, setVa
     return () => {
       current.removeEventListener('keydown', handleEnterKeyDown);
     };
-  }, [setValue, value]);
+  }, [onClickOption, value]);
 
   return (
     <li className={styles.container} onClick={handleClick(value)} tabIndex={0} ref={optionRef}>

@@ -59,6 +59,7 @@
 .description {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: pre-wrap;
   box-orient: vertical;
   display: -moz-box;
   -moz-box-orient: vertical;

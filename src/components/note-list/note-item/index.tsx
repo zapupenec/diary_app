@@ -11,7 +11,7 @@ interface INotesItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>,
 }
 
 export const NotesItem: FC<INotesItemProps> = ({ note }) => {
-  const { emoji, foto, title, date, note: description } = note;
+  const { emoji, imageUrl, title, date, description } = note;
   const { dateTime, dateDisplay } = getDisplayDate(date);
   const { showModal } = useModal();
 
@@ -33,7 +33,7 @@ export const NotesItem: FC<INotesItemProps> = ({ note }) => {
       onKeyDown={handleKeyDown}
       aria-label="открыть заметку"
     >
-      <ImgWithLoader className={styles['background-image']} src={foto} alt={title} />
+      <ImgWithLoader className={styles['background-image']} src={imageUrl} alt={title} />
       <div className={styles.moodStatus}>
         <Emoji emoji={emoji} size="small" />
       </div>

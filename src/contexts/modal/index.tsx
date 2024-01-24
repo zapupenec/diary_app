@@ -9,7 +9,7 @@ interface IModalContext {
   hideModal: () => void;
 }
 
-const defaultState = {
+const initialContext: IModalContext = {
   isMounted: false,
   isShowModal: false,
   type: null,
@@ -18,7 +18,7 @@ const defaultState = {
   hideModal: () => {},
 };
 
-const ModalContext = createContext<IModalContext>(defaultState);
+const ModalContext = createContext<IModalContext>(initialContext);
 
 export const ModalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isClosing, setIsClosing] = useState(false);
@@ -27,14 +27,14 @@ export const ModalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [type, setType] = useState<IModalContext['type']>(null);
   const [extra, setExtra] = useState<IModalContext['extra']>(null);
 
-  const showModal = (type: IModalContext['type'], extra: IModalContext['extra']) => {
+  const showModal: IModalContext['showModal'] = (type, extra) => {
     setIsMounted(true);
     setIsClosing(false);
     setType(type);
     setExtra(extra);
   };
 
-  const hideModal = () => {
+  const hideModal: IModalContext['hideModal'] = () => {
     setIsShowModal(false);
     setIsClosing(true);
   };

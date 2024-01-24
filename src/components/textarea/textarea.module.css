@@ -26,6 +26,10 @@
   outline: 2px solid var(--text);
 }
 
+.container.invalid {
+  outline: 2px solid var(--error);
+}
+
 @media (max-width: 1023px) {
   .container {
     padding: 12px;

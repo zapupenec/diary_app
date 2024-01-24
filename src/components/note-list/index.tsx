@@ -2,12 +2,14 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 
 import styles from './note-list.module.css';
 import { NotesItem } from './note-item';
-import notes from '../../mock/notes.json';
+import { TNote } from 'types';
 
 interface INotesItemProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {}
+  extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
+  notes: TNote[];
+}
 
-export const NotesList: FC<INotesItemProps> = () => {
+export const NotesList: FC<INotesItemProps> = ({ notes }) => {
   return (
     <ul className={styles.container}>
       {notes.map((note) => (

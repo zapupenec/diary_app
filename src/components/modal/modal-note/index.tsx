@@ -11,7 +11,7 @@ interface IModalNoteProps
 
 export const ModalNote: FC<IModalNoteProps> = () => {
   const { extra, hideModal } = useModal();
-  const { title, note: description, date, foto, emoji } = extra.note;
+  const { title, description, date, imageUrl, emoji } = extra.note;
   const { dateTime, dateDisplay } = getDisplayDate(date, 'long');
   const { width } = useResize();
 
@@ -32,7 +32,7 @@ export const ModalNote: FC<IModalNoteProps> = () => {
           <div className={styles.moodStatus}>
             <Emoji emoji={emoji} size={width <= 1023 ? 'small' : 'big'} />
           </div>
-          <ImgWithLoader className={styles.image} src={foto} alt={title} />
+          <ImgWithLoader className={styles.image} src={imageUrl} alt={title} />
         </div>
       </div>
     </div>

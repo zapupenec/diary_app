@@ -5,15 +5,18 @@ import { emojis } from 'constant';
 import { Button, Icon, Input, Logo, Selector } from 'components';
 import { clsx } from 'lib';
 import { useRouter } from 'contexts/router';
+import { useAddNoteForm } from 'contexts/add-note-form';
 
 interface IHeader extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
 
 export const Header: FC<IHeader> = ({ className }) => {
   const { currentPage, setCurrentPage } = useRouter();
+  const { resetFormData } = useAddNoteForm();
 
   const handleClickLogo: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
     setCurrentPage('note-list');
+    resetFormData();
   };
 
   const handleClickBtnEdit: MouseEventHandler<HTMLButtonElement> = (e) => {

@@ -3,9 +3,11 @@
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   grid-auto-rows: 220px;
   gap: 20px;
+  border-radius: var(--border-radius);
 }
 
-.img {
+.item {
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -13,6 +15,45 @@
   -moz-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.item::before {
+  pointer-events: none;
+  position: absolute;
+  content: '';
+  background: lightgrey;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.item::after {
+  pointer-events: none;
+  display: block;
+  height: 60px;
+  width: 60px;
+  content: '';
+  background: no-repeat center / 24px url('assets/icons/check.svg'), var(--button);
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.item.active::after {
+  opacity: 1;
+}
+
+.item.inactive::before {
+  opacity: 0.5;
 }
 
 @media (max-width: 1439px) {

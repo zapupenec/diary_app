@@ -3,9 +3,11 @@ import styles from './textarea.module.css';
 import { clsx } from 'lib';
 
 interface ITextareaProps
-  extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {}
+  extends DetailedHTMLProps<TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement> {
+  isValid?: boolean;
+}
 
-export const Textarea: FC<ITextareaProps> = ({ className, ...props }) => {
+export const Textarea: FC<ITextareaProps> = ({ className, isValid = true, ...props }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleChange = () => {
@@ -23,7 +25,7 @@ export const Textarea: FC<ITextareaProps> = ({ className, ...props }) => {
     <textarea
       onChange={handleChange}
       ref={textareaRef}
-      className={clsx(className, styles.container)}
+      className={clsx(className, styles.container, isValid ? '' : styles.invalid)}
       {...props}
     ></textarea>
   );
