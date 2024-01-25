@@ -1,4 +1,11 @@
-import { ChangeEventHandler, FC, FormEvent, useEffect, useRef } from 'react';
+import {
+  ChangeEventHandler,
+  FC,
+  FormEventHandler,
+  MouseEventHandler,
+  useEffect,
+  useRef,
+} from 'react';
 
 import styles from './add-note.module.css';
 import { useResize } from 'hooks';
@@ -41,13 +48,19 @@ export const AddNote: FC = () => {
     }
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (isValidFormData()) {
       addNote(formData);
       setCurrentPage('note-list');
       resetFormData();
     }
+  };
+
+  const handleCancel: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    setCurrentPage('note-list');
+    resetFormData();
   };
 
   return (
@@ -90,10 +103,22 @@ export const AddNote: FC = () => {
           onChange={handleChangeText}
           isValid={isValid.description}
         />
-        <Button className={styles['submit-btn']} type="submit" form="add-form">
-          <Icon name="pen" />
-          Добавить запись
-        </Button>
+        <div className={styles.controls}>
+          <Button className={styles['submit-btn']} type="submit" form="add-form">
+            <Icon name="pen" />
+            Добавить<span> запись</span>
+          </Button>
+          <Button
+            className={styles['cansel-btn']}
+            type="button"
+            form="add-form"
+            bgColor="var(--button-grey)"
+            onClick={handleCancel}
+          >
+            <Icon name="cross" />
+            Отменить<span> добавление</span>
+          </Button>
+        </div>
         {width <= 1439 && (
           <div
             className={clsx(styles['image-placeholder'], isValid.imageUrl ? '' : styles.invalid)}

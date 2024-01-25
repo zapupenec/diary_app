@@ -15,10 +15,6 @@
   min-width: 100px;
 }
 
-.btn-edit {
-  width: 225px;
-}
-
 .btn-edit svg {
   height: 24px;
   width: 24px;
@@ -43,10 +39,6 @@
     padding: 20px;
     gap: 20px;
     grid-auto-rows: 40px;
-  }
-
-  .btn-edit {
-    width: 40px;
   }
 
   .btn-edit svg {

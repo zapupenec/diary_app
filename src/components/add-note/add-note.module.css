@@ -30,12 +30,14 @@
   grid-row: 3 / 4;
 }
 
-.submit-btn {
-  width: 225px;
+.controls {
   grid-row: 4 / 5;
+  display: flex;
+  gap: 40px;
 }
 
-.submit-btn svg {
+.submit-btn > svg,
+.cansel-btn > svg {
   width: 24px;
   height: 24px;
 }
@@ -81,7 +83,7 @@
     outline: 2px solid var(--error);
   }
 
-  .image-placeholder svg {
+  .image-placeholder > svg {
     height: 19px;
     width: 19px;
   }
@@ -116,13 +118,24 @@
     grid-row: 4 / 5;
   }
 
-  .submit-btn {
-    width: 100%;
+  .controls {
     grid-column: 1 / -1;
     grid-row: 5 / 6;
+    gap: 20px;
   }
 
-  .submit-btn svg {
+  .submit-btn,
+  .cansel-btn {
+    width: 50%;
+  }
+
+  .submit-btn > span,
+  .cansel-btn > span {
+    display: none;
+  }
+
+  .submit-btn > svg,
+  .cansel-btn > svg {
     width: 18px;
     height: 18px;
   }
@@ -132,7 +145,7 @@
     grid-row: 1 / 2;
   }
 
-  .image-placeholder svg {
+  .image-placeholder > svg {
     height: 24px;
     width: 24px;
   }
