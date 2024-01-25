@@ -1,24 +1,16 @@
-import {
-  ChangeEventHandler,
-  FC,
-  FormEventHandler,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-} from 'react';
+import { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
 
 import styles from './add-note.module.css';
 import { useResize } from 'hooks';
 import { Button, Icon, ImgWithLoader, Input, SearchImage, Selector, Textarea } from 'components';
 import { emojis } from 'constant';
+import { clsx } from 'lib';
 import { useAddNoteForm } from 'contexts/add-note-form';
 import { useDiary } from 'contexts/diary';
-import { clsx } from 'lib';
 import { useRouter } from 'contexts/router';
 
 export const AddNote: FC = () => {
   const { width } = useResize();
-  const refFieldTitle = useRef<HTMLInputElement>(null);
   const { addNote } = useDiary();
   const { formData, isValid, updateFormData, resetFormData, isValidFormData } = useAddNoteForm();
   const { setCurrentPage } = useRouter();
@@ -41,13 +33,6 @@ export const AddNote: FC = () => {
     });
   };
 
-  useEffect(() => {
-    const { current } = refFieldTitle;
-    if (current) {
-      current.focus();
-    }
-  }, []);
-
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     if (isValidFormData()) {
@@ -68,7 +53,7 @@ export const AddNote: FC = () => {
       <div className={styles['form-wrapper']}>
         <form className={styles.form} onSubmit={handleSubmit} id="add-form">
           <Input
-            ref={refFieldTitle}
+            autoFocus
             className={styles.title}
             placeholder="Название"
             id="title"

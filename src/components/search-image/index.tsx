@@ -2,7 +2,7 @@ import { FC, FormEvent } from 'react';
 
 import styles from './search-image.module.css';
 import notes from 'mock/notes.json';
-import { Button, Icon, ImagesList, Input } from 'components';
+import { Button, Icon, ImageList, Input } from 'components';
 
 interface ISearchImageProps {
   selectedImg: string;
@@ -30,7 +30,7 @@ export const SearchImage: FC<ISearchImageProps> = ({
           <Icon name="search" />
         </Button>
       </form>
-      <ImagesList images={images} onClickItem={onChangeImage} selectedImg={selectedImg} />
+      <ImageList images={images} onClickItem={onChangeImage} selectedImg={selectedImg} />
     </div>
   );
 };

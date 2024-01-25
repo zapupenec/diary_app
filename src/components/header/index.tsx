@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, MouseEventHandler, useEffect, useRef } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, MouseEventHandler } from 'react';
 
 import styles from './header.module.css';
 import { emojis } from 'constant';
@@ -24,13 +24,6 @@ export const Header: FC<IHeader> = ({ className }) => {
     setCurrentPage('add-note');
   };
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
-
   return (
     <header className={clsx(className, styles.container)}>
       <Logo onClick={handleClickLogo} />
@@ -39,7 +32,7 @@ export const Header: FC<IHeader> = ({ className }) => {
           <div className={styles.search}>
             <Input
               className={styles.search__input}
-              ref={inputRef}
+              autoFocus
               type="text"
               placeholder="Поиск"
             />
