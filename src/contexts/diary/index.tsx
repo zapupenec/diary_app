@@ -9,8 +9,11 @@ interface IDiaryContext {
   addNote: (noteData: TNoteData) => void;
 }
 
+const sortByDateInReverseOrder = (notes: TNote[]) =>
+  [...notes].sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+
 const initialContext: IDiaryContext = {
-  notes: initialNotes,
+  notes: sortByDateInReverseOrder(initialNotes),
   addNote: () => {},
 };
 
@@ -28,13 +31,15 @@ export const DiaryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, []);
 
   const addNote: IDiaryContext['addNote'] = (noteData) => {
-    console.log(noteData);
     const trimmedNoteData = Object.fromEntries(
       Object.entries(noteData).map(([name, value]) => [name, value.trim()]),
     );
+
     const newNote = { id: genNoteId(notes), ...trimmedNoteData };
-    setNotes((prev) => [...prev, newNote as TNote]);
-    window.localStorage.setItem('notes', JSON.stringify([...notes, newNote]));
+    const newNotes = sortByDateInReverseOrder([...notes, newNote as TNote]);
+
+    setNotes(newNotes);
+    window.localStorage.setItem('notes', JSON.stringify(newNotes));
   };
 
   return (

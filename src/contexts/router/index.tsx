@@ -16,8 +16,7 @@ interface IRouterContext {
 }
 
 const initialContext: IRouterContext = {
-  currentPage: 'add-note',
-  // currentPage: 'note-list',
+  currentPage: 'note-list',
   setCurrentPage: () => {},
 };
 
