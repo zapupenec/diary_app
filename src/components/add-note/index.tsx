@@ -8,12 +8,14 @@ import { clsx } from 'lib';
 import { useAddNoteForm } from 'contexts/add-note-form';
 import { useDiary } from 'contexts/diary';
 import { useRouter } from 'contexts/router';
+import { useModal } from 'contexts/modal';
 
 export const AddNote: FC = () => {
   const { width } = useResize();
   const { addNote } = useDiary();
   const { formData, isValid, updateFormData, resetFormData, isValidFormData } = useAddNoteForm();
   const { setCurrentPage } = useRouter();
+  const { showModal } = useModal();
 
   const handleChangeText: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     updateFormData({
@@ -27,7 +29,7 @@ export const AddNote: FC = () => {
     });
   };
 
-  const handleChangeImage = (value: string) => {
+  const handleClickImage = (value: string) => {
     updateFormData({
       imageUrl: value,
     });
@@ -46,6 +48,10 @@ export const AddNote: FC = () => {
     e.preventDefault();
     setCurrentPage('note-list');
     resetFormData();
+  };
+
+  const handleClickImagePlaceholder: MouseEventHandler<HTMLDivElement> = (e) => {
+    showModal('search-image', { handleClickImage });
   };
 
   return (
@@ -109,6 +115,8 @@ export const AddNote: FC = () => {
             className={clsx(styles['image-placeholder'], isValid.imageUrl ? '' : styles.invalid)}
             tabIndex={0}
             role="button"
+            onClick={handleClickImagePlaceholder}
+            aria-label='Открыть поиск изображений'
           >
             {formData.imageUrl === '' ? (
               <Icon name="image-icon" />
@@ -120,7 +128,7 @@ export const AddNote: FC = () => {
       </div>
       {width > 1439 && (
         <div className={clsx(styles.search, isValid.imageUrl ? '' : styles.invalid)}>
-          <SearchImage onChangeImage={handleChangeImage} selectedImg={formData.imageUrl} />
+          <SearchImage onClickImage={handleClickImage} selectedImg={formData.imageUrl} />
         </div>
       )}
     </div>

@@ -77,6 +77,12 @@
     -moz-box-shadow: var(--shadow);
     box-shadow: var(--shadow);
     overflow: hidden;
+    cursor: pointer;
+  }
+
+  .image-placeholder:focus,
+  .image-placeholder:hover {
+    outline: 2px solid var(--text);
   }
 
   .image-placeholder.invalid {

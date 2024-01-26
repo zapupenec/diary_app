@@ -5,11 +5,13 @@ import styles from './modal.module.css';
 import { useModal } from 'contexts/modal';
 import { Overlay } from './overlay';
 import { ModalNote } from './modal-note';
+import { ModalSearchImage } from './modal-search-image';
 import { AnimationForContent } from './animation-for-content';
 
 // модалки с контентом, которые помещаем в Modal
 const modals = {
   note: ModalNote,
+  'search-image': ModalSearchImage,
 };
 
 export const Modal: FC = memo(() => {

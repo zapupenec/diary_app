@@ -1,11 +1,13 @@
 import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
+type TModalName = 'note' | 'search-image';
+
 interface IModalContext {
   isMounted: boolean;
   isShowModal: boolean;
-  type: 'note' | null;
+  type: TModalName | null;
   extra: any | null;
-  showModal: (type: IModalContext['type'], data: IModalContext['extra']) => void;
+  showModal: (type: IModalContext['type'], extra: IModalContext['extra']) => void;
   hideModal: () => void;
 }
 
@@ -14,7 +16,7 @@ const initialContext: IModalContext = {
   isShowModal: false,
   type: null,
   extra: null,
-  showModal: (type: IModalContext['type'], data: IModalContext['extra']) => {},
+  showModal: () => {},
   hideModal: () => {},
 };
 

@@ -5,8 +5,8 @@ import notes from 'mock/notes.json';
 import { Button, Icon, ImageList, Input } from 'components';
 
 interface ISearchImageProps {
-  selectedImg: string;
-  onChangeImage: (value: string) => void;
+  selectedImg?: string;
+  onClickImage: (value: string) => void;
 }
 
 const images = notes.map((item) => ({
@@ -15,7 +15,7 @@ const images = notes.map((item) => ({
 }));
 
 export const SearchImage: FC<ISearchImageProps> = ({
-  onChangeImage = () => {},
+  onClickImage = () => {},
   selectedImg = '',
 }) => {
   const handleSubmit = (e: FormEvent) => {
@@ -30,7 +30,7 @@ export const SearchImage: FC<ISearchImageProps> = ({
           <Icon name="search" />
         </Button>
       </form>
-      <ImageList images={images} onClickItem={onChangeImage} selectedImg={selectedImg} />
+      <ImageList images={images} onClickItem={onClickImage} selectedImg={selectedImg} />
     </div>
   );
 };

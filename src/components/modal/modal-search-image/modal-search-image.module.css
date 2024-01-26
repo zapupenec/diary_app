@@ -1,0 +1,23 @@
+.container {
+  padding: 125px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 1439px) {
+  .container {
+    padding: 40px 80px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding: 20px;
+  }
+}
