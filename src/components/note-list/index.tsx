@@ -9,14 +9,12 @@ interface INotesItemProps
   notes: TNote[];
 }
 
-export const NotesList: FC<INotesItemProps> = ({ notes }) => {
-  return (
-    <ul className={styles.container}>
-      {notes.map((note) => (
-        <li key={note.id}>
-          <NotesItem note={note} />
-        </li>
-      ))}
-    </ul>
-  );
-};
+export const NotesList: FC<INotesItemProps> = ({ notes }) => (
+  <ul className={styles.container}>
+    {notes.map((note) => (
+      <li key={note.id}>
+        <NotesItem note={note} />
+      </li>
+    ))}
+  </ul>
+);

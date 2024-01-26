@@ -24,10 +24,10 @@ const ModalContext = createContext<IModalContext>(initialContext);
 
 export const ModalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState<IModalContext['isMounted']>(false);
-  const [isShowModal, setIsShowModal] = useState<IModalContext['isShowModal']>(false);
-  const [type, setType] = useState<IModalContext['type']>(null);
-  const [extra, setExtra] = useState<IModalContext['extra']>(null);
+  const [isMounted, setIsMounted] = useState(initialContext.isMounted);
+  const [isShowModal, setIsShowModal] = useState(initialContext.isShowModal);
+  const [type, setType] = useState(initialContext.type);
+  const [extra, setExtra] = useState(initialContext.extra);
 
   const showModal: IModalContext['showModal'] = (type, extra) => {
     setIsMounted(true);

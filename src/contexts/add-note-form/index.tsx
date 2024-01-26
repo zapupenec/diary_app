@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 
-import { TNoteData } from 'types';
+import { TImage, TNoteData } from 'types';
 
 interface IAddNoteFormContext {
   formData: TNoteData;
@@ -9,14 +9,14 @@ interface IAddNoteFormContext {
     emoji: boolean;
     date: boolean;
     description: boolean;
-    imageUrl: boolean;
+    image: boolean;
   };
   updateFormData: (data: {
     title?: string;
     emoji?: string;
     date?: string;
     description?: string;
-    imageUrl?: string;
+    image?: TImage | null;
   }) => void;
   resetFormData: () => void;
   isValidFormData: () => boolean;
@@ -28,14 +28,14 @@ const initialContext: IAddNoteFormContext = {
     emoji: '',
     date: '',
     description: '',
-    imageUrl: '',
+    image: null,
   },
   isValid: {
     title: true,
     emoji: true,
     date: true,
     description: true,
-    imageUrl: true,
+    image: true,
   },
   updateFormData: () => {},
   resetFormData: () => {},
@@ -45,23 +45,21 @@ const initialContext: IAddNoteFormContext = {
 const AddNoteFormContext = createContext<IAddNoteFormContext>(initialContext);
 
 export const AddNoteFormProvider = ({ children }: { children: ReactNode }) => {
-  const [formData, setFormData] = useState<IAddNoteFormContext['formData']>(
-    initialContext.formData,
-  );
-  const [isValid, setIsValid] = useState<IAddNoteFormContext['isValid']>(initialContext.isValid);
+  const [formData, setFormData] = useState(initialContext.formData);
+  const [isValid, setIsValid] = useState(initialContext.isValid);
 
   const validateFields = (data: {
     title?: string;
     emoji?: string;
     date?: string;
     description?: string;
-    imageUrl?: string;
+    image?: TImage | null;
   }) => {
     const fields = Object.entries(data);
     const newIsValid = fields.reduce((acc, [fieldName, value]) => {
       return {
         ...acc,
-        [fieldName]: value !== '',
+        [fieldName]: typeof value === 'string' ? value !== '' : value !== null,
       };
     }, isValid);
     setIsValid(newIsValid);

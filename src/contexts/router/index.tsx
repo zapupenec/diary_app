@@ -23,9 +23,7 @@ const initialContext: IRouterContext = {
 const RouterContext = createContext<IRouterContext>(initialContext);
 
 export const RouterProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState<IRouterContext['currentPage']>(
-    initialContext.currentPage,
-  );
+  const [currentPage, setCurrentPage] = useState(initialContext.currentPage);
 
   return (
     <RouterContext.Provider

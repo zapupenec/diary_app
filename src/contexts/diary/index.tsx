@@ -1,6 +1,5 @@
 import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
-import initialNotes from 'mock/notes.json';
 import { TNote, TNoteData } from 'types';
 import { genNoteId } from 'lib';
 
@@ -13,14 +12,14 @@ const sortByDateInReverseOrder = (notes: TNote[]) =>
   [...notes].sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
 
 const initialContext: IDiaryContext = {
-  notes: sortByDateInReverseOrder(initialNotes),
+  notes: [],
   addNote: () => {},
 };
 
 const DiaryContext = createContext<IDiaryContext>(initialContext);
 
 export const DiaryProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [notes, setNotes] = useState<IDiaryContext['notes']>(initialContext.notes);
+  const [notes, setNotes] = useState(initialContext.notes);
 
   useEffect(() => {
     const localData = window.localStorage.getItem('notes');
@@ -32,7 +31,12 @@ export const DiaryProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const addNote: IDiaryContext['addNote'] = (noteData) => {
     const trimmedNoteData = Object.fromEntries(
-      Object.entries(noteData).map(([name, value]) => [name, value.trim()]),
+      Object.entries(noteData).map(([name, value]) => {
+        if (typeof value === 'string') {
+          return [name, value.trim()];
+        }
+        return [name, value];
+      }),
     );
 
     const newNote = { id: genNoteId(notes), ...trimmedNoteData };

@@ -3,11 +3,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes, ReactEventHandler, useState } fr
 import styles from './image-item.module.css';
 import { ImgWithLoader } from 'components/img-with-loader';
 import { clsx } from 'lib';
-
-export type TImage = {
-  id: number;
-  url: string;
-};
+import { TImage } from 'types';
 
 interface IImageItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   image: TImage;
@@ -32,7 +28,12 @@ export const ImageItem: FC<IImageItemProps> = ({ image, onClick, status = 'regul
         status === 'inactive' ? styles.inactive : '',
       )}
     >
-      <ImgWithLoader onClick={onClick} src={image.url} alt="Фото" onLoad={handleLoad} />
+      <ImgWithLoader
+        onClick={onClick}
+        src={image.url}
+        alt={image.description}
+        onLoad={handleLoad}
+      />
     </li>
   );
 };

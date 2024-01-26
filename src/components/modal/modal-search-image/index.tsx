@@ -4,6 +4,7 @@ import styles from './modal-search-image.module.css';
 import { SearchImage } from 'components';
 import { useModal } from 'contexts/modal';
 import { useResize } from 'hooks';
+import { TImage } from 'types';
 
 interface IModalSearchImageProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
@@ -13,8 +14,8 @@ export const ModalSearchImage: FC<IModalSearchImageProps> = () => {
   const { handleClickImage } = extra;
   const { width } = useResize();
 
-  const handleClick = (value: string) => {
-    handleClickImage(value);
+  const handleClick = (image: TImage | null) => {
+    handleClickImage(image);
     hideModal();
   };
 
@@ -27,7 +28,7 @@ export const ModalSearchImage: FC<IModalSearchImageProps> = () => {
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
       <div className={styles.content}>
-        <SearchImage onClickImage={handleClick} />
+        <SearchImage onClickImage={handleClick} autoFocus />
       </div>
     </div>
   );

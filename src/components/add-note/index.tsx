@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler } from 'react';
+import { ChangeEventHandler, FC, FormEventHandler, MouseEventHandler, useEffect } from 'react';
 
 import styles from './add-note.module.css';
 import { useResize } from 'hooks';
@@ -9,6 +9,8 @@ import { useAddNoteForm } from 'contexts/add-note-form';
 import { useDiary } from 'contexts/diary';
 import { useRouter } from 'contexts/router';
 import { useModal } from 'contexts/modal';
+import { useSearchImage } from 'contexts/search-image';
+import { TImage } from 'types';
 
 export const AddNote: FC = () => {
   const { width } = useResize();
@@ -16,6 +18,10 @@ export const AddNote: FC = () => {
   const { formData, isValid, updateFormData, resetFormData, isValidFormData } = useAddNoteForm();
   const { setCurrentPage } = useRouter();
   const { showModal } = useModal();
+  const { fetchImages } = useSearchImage();
+  useEffect(() => {
+    fetchImages();
+  }, [fetchImages]);
 
   const handleChangeText: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
     updateFormData({
@@ -29,10 +35,8 @@ export const AddNote: FC = () => {
     });
   };
 
-  const handleClickImage = (value: string) => {
-    updateFormData({
-      imageUrl: value,
-    });
+  const handleClickImage = (image: TImage | null) => {
+    updateFormData({ image });
   };
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -112,23 +116,23 @@ export const AddNote: FC = () => {
         </div>
         {width <= 1439 && (
           <div
-            className={clsx(styles['image-placeholder'], isValid.imageUrl ? '' : styles.invalid)}
+            className={clsx(styles['image-placeholder'], isValid.image ? '' : styles.invalid)}
             tabIndex={0}
             role="button"
             onClick={handleClickImagePlaceholder}
-            aria-label='Открыть поиск изображений'
+            aria-label="Открыть поиск изображений"
           >
-            {formData.imageUrl === '' ? (
-              <Icon name="image-icon" />
+            {formData.image ? (
+              <ImgWithLoader src={formData.image.url} alt={formData.image.description} />
             ) : (
-              <ImgWithLoader src={formData.imageUrl} alt="Фото" />
+              <Icon name="image-icon" />
             )}
           </div>
         )}
       </div>
       {width > 1439 && (
-        <div className={clsx(styles.search, isValid.imageUrl ? '' : styles.invalid)}>
-          <SearchImage onClickImage={handleClickImage} selectedImg={formData.imageUrl} />
+        <div className={clsx(styles.search, isValid.image ? '' : styles.invalid)}>
+          <SearchImage onClickImage={handleClickImage} selectedImg={formData.image?.url} />
         </div>
       )}
     </div>

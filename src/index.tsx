@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
@@ -7,11 +6,12 @@ import { AddNoteFormProvider } from 'contexts/add-note-form';
 import { DiaryProvider } from 'contexts/diary';
 import { ModalProvider } from 'contexts/modal';
 import { RouterProvider } from 'contexts/router';
+import { SearchImageProvider } from 'contexts/search-image';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <DiaryProvider>
+  <DiaryProvider>
+    <SearchImageProvider>
       <AddNoteFormProvider>
         <ModalProvider>
           <RouterProvider>
@@ -19,6 +19,6 @@ root.render(
           </RouterProvider>
         </ModalProvider>
       </AddNoteFormProvider>
-    </DiaryProvider>
-  </React.StrictMode>,
+    </SearchImageProvider>
+  </DiaryProvider>,
 );
