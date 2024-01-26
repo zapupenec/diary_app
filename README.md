@@ -3,7 +3,7 @@ EN | [RU](https://github.com/zapupenec/diary_app/blob/master/README-ru.md)
 # [Diary app](https://diary-app-self.vercel.app)
 description
 
-![screenshot]()
+![screenshot](./image/screenshot.png)
 
 Created based on a project from an educational internship in
 <a href="https://preax.ru" target="_blank" rel="noreferrer">
@@ -34,6 +34,8 @@ to the initial conditions for practice.
 ## Install for development
 Developed using Node.js v20.4.0.
 
+To work with the API, you need your secret key. Register at [unsplash.com](https://unsplash.com) and generate your key.
+
 Clone the repository locally.
 ```
 git clone https://github.com/zapupenec/diary_app.git
@@ -41,6 +43,12 @@ git clone https://github.com/zapupenec/diary_app.git
 Install the dependencies.
 ```
 make install
+```
+In the root folder, create a file ```.env``` and write down your key.
+```
+// contents of .env
+
+REACT_APP_API_KEY = 'your-secret-api-key'
 ```
 Runs the app in the development mode.
 ```

@@ -3,7 +3,7 @@
 # [Приложение дневник](https://diary-app-self.vercel.app)
 описание
 
-![screenshot]()
+![screenshot](./image/screenshot.png)
 
 Создано на основе проекта учебной стажировки в
 <a href="https://preax.ru" target="_blank" rel="noreferrer">
@@ -34,6 +34,8 @@
 ## Установка для разработки
 Во время разработки использовалась Node.js v20.4.0.
 
+Для работы с API понадобиться секретный ключ. Зарегистрируйтесь на [unsplash.com](https://unsplash.com) и создайте свой ключ.
+
 Скопируйте репозиторий локально.
 ```
 git clone https://github.com/zapupenec/diary_app.git
@@ -41,6 +43,12 @@ git clone https://github.com/zapupenec/diary_app.git
 Установите зависимости.
 ```
 make install
+```
+В корневой папке создайте файл ```.env``` и запишите ваш ключ.
+```
+// contents of .env
+
+REACT_APP_API_KEY = 'your-secret-api-key'
 ```
 Запустите приложения в режиме разработки.
 ```
