@@ -15,6 +15,12 @@
   min-width: 100px;
 }
 
+.btn-clear {
+  padding: 0;
+  min-width: 60px;
+}
+
+.btn-clear svg,
 .btn-edit svg {
   height: 24px;
   width: 24px;
@@ -41,6 +47,11 @@
     grid-auto-rows: 40px;
   }
 
+  .btn-clear {
+    min-width: 40px;
+  }
+
+  .btn-clear svg,
   .btn-edit svg {
     height: 20px;
     width: 20px;

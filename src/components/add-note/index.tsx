@@ -69,14 +69,17 @@ export const AddNote: FC = () => {
             id="title"
             onChange={handleChangeText}
             isValid={isValid.title}
+            value={formData.title}
           />
           <Selector
             values={emojis}
             displayValues={emojis}
             placeholder={<Icon name="smile-mouth-open" />}
+            value={formData.emoji}
             defaultValue=""
             isValid={isValid.emoji}
             onChangeValue={handleChangeSelect}
+            aria-label='Выбор эмодзи'
           />
           <Input
             className={styles.date}
@@ -87,6 +90,7 @@ export const AddNote: FC = () => {
             onBlur={(e) => (e.target.type = e.target.value === '' ? 'text' : 'date')}
             max={new Date().toISOString().split('T')[0]}
             onChange={handleChangeText}
+            value={formData.date}
             isValid={isValid.date}
           />
         </form>
@@ -97,6 +101,7 @@ export const AddNote: FC = () => {
           form="add-form"
           onChange={handleChangeText}
           isValid={isValid.description}
+          value={formData.description}
         />
         <div className={styles.controls}>
           <Button className={styles['submit-btn']} type="submit" form="add-form">

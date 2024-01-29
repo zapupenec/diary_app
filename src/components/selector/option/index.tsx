@@ -10,7 +10,13 @@ interface IOptionProps
   onClickOption: (value: string) => void;
 }
 
-export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, onClickOption }) => {
+export const Option: FC<IOptionProps> = ({
+  value,
+  displayValue,
+  setIsOpen,
+  onClickOption,
+  ...props
+}) => {
   const optionRef = useRef<HTMLLIElement>(null);
 
   const handleClick = (selectedValue: any) => () => {
@@ -34,7 +40,14 @@ export const Option: FC<IOptionProps> = ({ value, displayValue, setIsOpen, onCli
   }, [onClickOption, value]);
 
   return (
-    <li className={styles.container} onClick={handleClick(value)} tabIndex={0} ref={optionRef}>
+    <li
+      className={styles.container}
+      onClick={handleClick(value)}
+      tabIndex={0}
+      ref={optionRef}
+      role="button"
+      {...props}
+    >
       {displayValue}
     </li>
   );

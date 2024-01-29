@@ -8,6 +8,7 @@ import { Option } from './option';
 interface ISelectorProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   placeholder: any;
   defaultValue: string;
+  value: string;
   values: string[];
   displayValues: string[];
   isValid?: boolean;
@@ -18,13 +19,14 @@ export const Selector: FC<ISelectorProps> = ({
   className,
   placeholder,
   defaultValue,
+  value,
   values,
   displayValues,
   isValid = true,
   onChangeValue = () => {},
+  ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value, setValue] = useState(defaultValue);
   const selectortRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
@@ -36,7 +38,6 @@ export const Selector: FC<ISelectorProps> = ({
   };
 
   const hadnleClickOption = (currValue: string) => {
-    setValue(currValue);
     onChangeValue(currValue);
   };
 
@@ -71,15 +72,16 @@ export const Selector: FC<ISelectorProps> = ({
       ref={selectortRef}
       role="button"
       tabIndex={0}
+      {...props}
     >
       <div className={styles.placeholder}>{value === defaultValue ? placeholder : value}</div>
-      <div className={styles.arrow}>
+      <div className={styles.arrow} aria-hidden>
         <Icon name="chevron-down" />
       </div>
       {isOpen && (
         <ul className={styles.options}>
           {[placeholder, ...displayValues].map((displayValues, i) => {
-            const key = i === 0 ? 'defaultValue' : displayValues;
+            const key = i === 0 ? 'по умолчанию' : displayValues;
             return (
               <Option
                 key={key}
@@ -87,6 +89,7 @@ export const Selector: FC<ISelectorProps> = ({
                 onClickOption={hadnleClickOption}
                 displayValue={displayValues}
                 value={i === 0 ? defaultValue : values[i - 1]}
+                aria-label={`Выбрать: ${key}`}
               />
             );
           })}
