@@ -5,7 +5,7 @@
   align-items: flex-start;
 }
 
-.btnClose {
+.btn-close {
   height: 24px;
   width: 24px;
   position: absolute;
@@ -17,8 +17,8 @@
   transition: transform 0.5s;
 }
 
-.btnClose:hover,
-.btnClose:focus {
+.btn-close:hover,
+.btn-close:focus {
   transform: scale(1.5);
 }
 
@@ -62,7 +62,7 @@
   line-height: 26px;
 }
 
-.imageContainer {
+.image-container {
   position: relative;
 
   grid-column-start: 2;
@@ -70,7 +70,7 @@
   grid-row-end: -1;
 }
 
-.moodStatus {
+.mood-status {
   position: absolute;
   top: 40px;
   right: 40px;
@@ -106,7 +106,7 @@
     font-size: 20px;
   }
 
-  .imageContainer {
+  .image-container {
     grid-column-start: 1;
     grid-row-start: 2;
   }
@@ -117,12 +117,12 @@
     padding: 20px;
   }
 
-  .btnClose {
+  .btn-close {
     top: 20px;
     right: 15px;
   }
 
-  .btnClose svg {
+  .btn-close svg {
     fill: var(--background-white);
   }
 
@@ -160,13 +160,13 @@
     line-height: normal;
   }
 
-  .imageContainer {
+  .image-container {
     grid-row-start: 1;
     grid-row-end: 2;
     margin: -20px -20px 0;
   }
 
-  .moodStatus {
+  .mood-status {
     top: unset;
     right: 20px;
     bottom: 20px;

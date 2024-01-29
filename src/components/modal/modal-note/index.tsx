@@ -11,14 +11,14 @@ interface IModalNoteProps
 
 export const ModalNote: FC<IModalNoteProps> = () => {
   const { extra, hideModal } = useModal();
-  const { title, description, date, imageUrl, emoji } = extra.note;
+  const { title, description, date, image, emoji } = extra.note;
   const { dateTime, dateDisplay } = getDisplayDate(date, 'long');
   const { width } = useResize();
 
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
       <div className={styles.content}>
-        <button className={styles.btnClose} onClick={hideModal} aria-label="Закрыть">
+        <button className={styles['btn-close']} onClick={hideModal} aria-label="Закрыть">
           <Icon name="cross" />
         </button>
         <h2 className={styles.title} id="modal-header">
@@ -28,11 +28,11 @@ export const ModalNote: FC<IModalNoteProps> = () => {
           {dateDisplay}
         </time>
         <div className={styles.description}>{description}</div>
-        <div className={styles.imageContainer}>
-          <div className={styles.moodStatus}>
+        <div className={styles['image-container']}>
+          <div className={styles['mood-status']}>
             <Emoji emoji={emoji} size={width <= 1023 ? 'small' : 'big'} />
           </div>
-          <ImgWithLoader className={styles.image} src={imageUrl} alt={title} />
+          <ImgWithLoader className={styles.image} src={image.url} alt={image.description} />
         </div>
       </div>
     </div>

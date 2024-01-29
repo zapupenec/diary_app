@@ -11,7 +11,7 @@
 }
 
 .submit-btn {
-  width: 60px;
+  min-width: 60px;
 }
 
 .submit-btn svg {
@@ -43,7 +43,7 @@
   }
 
   .submit-btn {
-    width: 40px;
+    min-width: 40px;
   }
 
   .feedback {
