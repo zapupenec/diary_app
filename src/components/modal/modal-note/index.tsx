@@ -1,19 +1,27 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, MouseEventHandler } from 'react';
 
 import styles from './modal-note.module.css';
-import { Emoji, Icon, ImgWithLoader } from 'components';
+import { Button, Emoji, Icon, ImgWithLoader } from 'components';
 import { useModal } from 'contexts/modal';
 import { getDisplayDate } from 'lib';
 import { useResize } from 'hooks';
+import { useDiary } from 'contexts/diary';
 
 interface IModalNoteProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 export const ModalNote: FC<IModalNoteProps> = () => {
   const { extra, hideModal } = useModal();
-  const { title, description, date, image, emoji } = extra.note;
+  const { id, title, description, date, image, emoji } = extra.note;
   const { dateTime, dateDisplay } = getDisplayDate(date, 'long');
   const { width } = useResize();
+  const { removeNote } = useDiary();
+
+  const handleClickRemove: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    removeNote(id);
+    hideModal();
+  };
 
   return (
     <div className={styles.container} onClick={(e) => e.stopPropagation()}>
@@ -28,6 +36,16 @@ export const ModalNote: FC<IModalNoteProps> = () => {
           {dateDisplay}
         </time>
         <div className={styles.description}>{description}</div>
+        <div className={styles.actions}>
+          <Button className={styles.btn}>
+            <Icon name="pen" />
+            Изменить<span> запись</span>
+          </Button>
+          <Button className={styles.btn} bgColor="var(--button-grey)" onClick={handleClickRemove}>
+            <Icon name="cross" />
+            Удалить<span> запись</span>
+          </Button>
+        </div>
         <div className={styles['image-container']}>
           <div className={styles['mood-status']}>
             <Emoji emoji={emoji} size={width <= 1023 ? 'small' : 'big'} />

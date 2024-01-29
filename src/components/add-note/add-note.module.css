@@ -36,8 +36,7 @@
   gap: 40px;
 }
 
-.submit-btn > svg,
-.cansel-btn > svg {
+.btn > svg {
   width: 24px;
   height: 24px;
 }
@@ -130,18 +129,19 @@
     gap: 20px;
   }
 
-  .submit-btn,
-  .cansel-btn {
+  .btn {
     width: 50%;
   }
 
-  .submit-btn > span,
-  .cansel-btn > span {
-    display: none;
+  .btn > span {
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
   }
 
-  .submit-btn > svg,
-  .cansel-btn > svg {
+  .btn > svg {
     width: 18px;
     height: 18px;
   }

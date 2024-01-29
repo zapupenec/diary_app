@@ -33,7 +33,7 @@
 
   display: grid;
   grid-template-columns: 1fr 40%;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 1fr 60px;
   column-gap: 40px;
   row-gap: 20px;
 }
@@ -60,6 +60,16 @@
   font-size: 22px;
   font-weight: 300;
   line-height: 26px;
+}
+
+.actions {
+  display: flex;
+  gap: 40px;
+}
+
+.btn > svg {
+  width: 24px;
+  height: 24px;
 }
 
 .image-container {
@@ -94,6 +104,7 @@
 
   .content {
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr 60px;
     column-gap: 0;
     row-gap: 30px;
   }
@@ -108,7 +119,7 @@
 
   .image-container {
     grid-column-start: 1;
-    grid-row-start: 2;
+    grid-row: 2 / 3;
   }
 }
 
@@ -127,6 +138,7 @@
   }
 
   .content {
+    grid-template-rows: auto auto auto 1fr 40px;
     padding: 20px;
     row-gap: 20px;
   }
@@ -158,6 +170,27 @@
   .description {
     font-size: 14px;
     line-height: normal;
+  }
+
+  .actions {
+    gap: 20px;
+  }
+
+  .btn {
+    width: 50%;
+  }
+
+  .btn > span {
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
+  }
+
+  .btn > svg {
+    width: 18px;
+    height: 18px;
   }
 
   .image-container {

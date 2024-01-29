@@ -104,12 +104,12 @@ export const AddNote: FC = () => {
           value={formData.description}
         />
         <div className={styles.controls}>
-          <Button className={styles['submit-btn']} type="submit" form="add-form">
+          <Button className={styles.btn} type="submit" form="add-form">
             <Icon name="pen" />
             Добавить<span> запись</span>
           </Button>
           <Button
-            className={styles['cansel-btn']}
+            className={styles.btn}
             type="button"
             form="add-form"
             bgColor="var(--button-grey)"

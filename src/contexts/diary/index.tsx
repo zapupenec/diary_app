@@ -13,6 +13,7 @@ const initialFilterValues: IFilterValues = { title: '', emoji: '' };
 interface IDiaryContext {
   notes: TNote[];
   addNote: (noteData: TNoteData) => void;
+  removeNote: (id: TNote['id']) => void;
   filterValues: IFilterValues;
   updateFilterValues: (data: { title?: string; emoji?: string }) => void;
   resetFilterValues: () => void;
@@ -24,6 +25,7 @@ const sortByDateInReverseOrder = (notes: TNote[]) =>
 const initialContext: IDiaryContext = {
   notes: [],
   addNote: () => {},
+  removeNote: () => {},
   filterValues: { title: '', emoji: '' },
   updateFilterValues: () => {},
   resetFilterValues: () => {},
@@ -60,6 +62,12 @@ export const DiaryProvider: FC<{ children: ReactNode }> = ({ children }) => {
     window.localStorage.setItem('notes', JSON.stringify(newNotes));
   };
 
+  const removeNote: IDiaryContext['removeNote'] = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+    window.localStorage.setItem('notes', JSON.stringify(newNotes));
+  };
+
   const updateFilterValues: IDiaryContext['updateFilterValues'] = (data) => {
     const fields = Object.entries(data);
     setFilterValues((prev) =>
@@ -92,6 +100,7 @@ export const DiaryProvider: FC<{ children: ReactNode }> = ({ children }) => {
       value={{
         notes: filter(notes),
         addNote,
+        removeNote,
         filterValues,
         updateFilterValues,
         resetFilterValues,

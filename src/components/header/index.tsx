@@ -28,7 +28,7 @@ export const Header: FC<IHeader> = ({ className }) => {
     resetFilterValues();
   };
 
-  const handleClickBtnEdit: MouseEventHandler<HTMLButtonElement> = (e) => {
+  const handleClickBtnAdd: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     setCurrentPage('add-note');
     resetFilterValues();
@@ -82,7 +82,7 @@ export const Header: FC<IHeader> = ({ className }) => {
               <Icon name="cross" />
             </Button>
           </div>
-          <Button className={styles['btn-edit']} onClick={handleClickBtnEdit}>
+          <Button className={styles['btn-add']} onClick={handleClickBtnAdd}>
             <Icon name="pen" />
             <span>Добавить запись</span>
           </Button>

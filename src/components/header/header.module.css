@@ -21,7 +21,7 @@
 }
 
 .btn-clear svg,
-.btn-edit svg {
+.btn-add svg {
   height: 24px;
   width: 24px;
 }
@@ -52,13 +52,17 @@
   }
 
   .btn-clear svg,
-  .btn-edit svg {
+  .btn-add svg {
     height: 20px;
     width: 20px;
   }
 
-  .btn-edit > span {
-    display: none;
+  .btn-add > span {
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
   }
 
   .search__selector {
