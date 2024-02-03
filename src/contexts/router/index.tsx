@@ -1,35 +1,38 @@
-import {
-  Dispatch,
-  FC,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useContext,
-  useState,
-} from 'react';
+import { FC, ReactNode, createContext, useContext, useState } from 'react';
 
-type TPageName = 'note-list' | 'add-note';
+type TPageName = 'note-list' | 'add-note' | 'edit-note';
 
 interface IRouterContext {
   currentPage: TPageName;
-  setCurrentPage: Dispatch<SetStateAction<TPageName>>;
+  extra: {
+    noteId: number;
+  } | null;
+  navigateTo: (pageName: TPageName, extra?: IRouterContext['extra']) => void;
 }
 
 const initialContext: IRouterContext = {
   currentPage: 'note-list',
-  setCurrentPage: () => {},
+  extra: null,
+  navigateTo: () => {},
 };
 
 const RouterContext = createContext<IRouterContext>(initialContext);
 
 export const RouterProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(initialContext.currentPage);
+  const [extra, setExtra] = useState(initialContext.extra);
+
+  const navigateTo: IRouterContext['navigateTo'] = (pageName, extra = null) => {
+    setCurrentPage(pageName);
+    setExtra(extra);
+  };
 
   return (
     <RouterContext.Provider
       value={{
         currentPage,
-        setCurrentPage,
+        extra,
+        navigateTo,
       }}
     >
       {children}

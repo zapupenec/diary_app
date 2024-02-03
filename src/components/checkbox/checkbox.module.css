@@ -1,0 +1,104 @@
+.container {
+  --border: 2px;
+  --size: 24px;
+  --radius: 6px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 18px;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  padding: var(--border);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* not checked */
+.checkbox {
+  position: relative;
+  width: calc(var(--size) - var(--border));
+  height: calc(var(--size) - var(--border));
+  background: var(--background);
+  border-radius: var(--radius);
+}
+
+.checkbox::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: calc(-1 * var(--border));
+  background: var(--button-grey);
+  border-radius: calc(var(--radius) + var(--border));
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+.checkbox.invalid::before {
+  background: var(--error);
+}
+
+.input:hover + .checkbox::before,
+.input:focus + .checkbox::before {
+  background: var(--text);
+}
+
+/* checked */
+.input:checked + .checkbox {
+  background: no-repeat center / contain url('assets/icons/check.svg'), var(--button);
+}
+
+.input:checked + .checkbox::before {
+  background: var(--button);
+}
+
+.input:hover:checked + .checkbox::before,
+.input:focus:checked + .checkbox::before {
+  background: var(--text);
+}
+
+/* disabled */
+.input:disabled + .checkbox {
+  background: rgba(0, 0, 0, 0.1);
+  cursor: default;
+  pointer-events: none;
+}
+
+.input:disabled:checked + .checkbox {
+  background: no-repeat center url('assets/icons/check.svg'), rgba(0, 0, 0, 0.1);
+  cursor: default;
+  pointer-events: none;
+}
+
+.input:disabled + .checkbox::before,
+.input:disabled:checked + .checkbox::before {
+  background: rgba(0, 0, 0, 0.1);
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .container {
+    --size: 16px;
+    --radius: 4px;
+    font-size: 12px;
+    line-height: 12px;
+    gap: 10px;
+  }
+}

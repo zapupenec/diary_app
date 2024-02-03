@@ -6,6 +6,7 @@ import { useModal } from 'contexts/modal';
 import { getDisplayDate } from 'lib';
 import { useResize } from 'hooks';
 import { useDiary } from 'contexts/diary';
+import { useRouter } from 'contexts/router';
 
 interface IModalNoteProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
@@ -16,6 +17,13 @@ export const ModalNote: FC<IModalNoteProps> = () => {
   const { dateTime, dateDisplay } = getDisplayDate(date, 'long');
   const { width } = useResize();
   const { removeNote } = useDiary();
+  const { navigateTo } = useRouter();
+
+  const handleClickEdit: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault();
+    navigateTo('edit-note', { noteId: id });
+    hideModal();
+  };
 
   const handleClickRemove: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
@@ -37,7 +45,7 @@ export const ModalNote: FC<IModalNoteProps> = () => {
         </time>
         <div className={styles.description}>{description}</div>
         <div className={styles.actions}>
-          <Button className={styles.btn}>
+          <Button className={styles.btn} onClick={handleClickEdit}>
             <Icon name="pen" />
             Изменить<span> запись</span>
           </Button>

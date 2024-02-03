@@ -1,5 +1,5 @@
-export * from './add-note';
 export * from './button';
+export * from './checkbox';
 export * from './layout';
 export * from './emoji';
 export * from './header';
@@ -9,6 +9,7 @@ export * from './img-with-loader';
 export * from './input';
 export * from './logo';
 export * from './modal';
+export * from './note-form';
 export * from './note-list';
 export * from './search-image';
 export * from './selector';

@@ -2,7 +2,7 @@ import { ReactNode, createContext, useContext, useState } from 'react';
 
 import { TImage, TNoteData } from 'types';
 
-interface IAddNoteFormContext {
+interface INoteFormContext {
   formData: TNoteData;
   isValid: {
     title: boolean;
@@ -22,7 +22,7 @@ interface IAddNoteFormContext {
   isValidFormData: () => boolean;
 }
 
-const initialContext: IAddNoteFormContext = {
+const initialContext: INoteFormContext = {
   formData: {
     title: '',
     emoji: '',
@@ -42,9 +42,9 @@ const initialContext: IAddNoteFormContext = {
   isValidFormData: () => true,
 };
 
-const AddNoteFormContext = createContext<IAddNoteFormContext>(initialContext);
+const NoteFormContext = createContext<INoteFormContext>(initialContext);
 
-export const AddNoteFormProvider = ({ children }: { children: ReactNode }) => {
+export const NoteFormProvider = ({ children }: { children: ReactNode }) => {
   const [formData, setFormData] = useState(initialContext.formData);
   const [isValid, setIsValid] = useState(initialContext.isValid);
 
@@ -66,7 +66,7 @@ export const AddNoteFormProvider = ({ children }: { children: ReactNode }) => {
     return newIsValid;
   };
 
-  const updateFormData: IAddNoteFormContext['updateFormData'] = (data) => {
+  const updateFormData: INoteFormContext['updateFormData'] = (data) => {
     const fields = Object.entries(data);
     setFormData((prev) =>
       fields.reduce((acc, [fieldName, value]) => {
@@ -79,17 +79,17 @@ export const AddNoteFormProvider = ({ children }: { children: ReactNode }) => {
     validateFields(data);
   };
 
-  const resetFormData: IAddNoteFormContext['resetFormData'] = () => {
+  const resetFormData: INoteFormContext['resetFormData'] = () => {
     setFormData(initialContext.formData);
     setIsValid(initialContext.isValid);
   };
 
-  const isValidFormData: IAddNoteFormContext['isValidFormData'] = () => {
+  const isValidFormData: INoteFormContext['isValidFormData'] = () => {
     return !Object.values(validateFields(formData)).includes(false);
   };
 
   return (
-    <AddNoteFormContext.Provider
+    <NoteFormContext.Provider
       value={{
         formData,
         isValid,
@@ -99,8 +99,8 @@ export const AddNoteFormProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </AddNoteFormContext.Provider>
+    </NoteFormContext.Provider>
   );
 };
 
-export const useAddNoteForm = () => useContext(AddNoteFormContext);
+export const useNoteForm = () => useContext(NoteFormContext);

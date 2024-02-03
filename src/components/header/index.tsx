@@ -11,35 +11,35 @@ import { emojis } from 'constant';
 import { Button, Icon, Input, Logo, Selector } from 'components';
 import { clsx } from 'lib';
 import { useRouter } from 'contexts/router';
-import { useAddNoteForm } from 'contexts/add-note-form';
+import { useNoteForm } from 'contexts/note-form';
 import { useDiary } from 'contexts/diary';
 
 interface IHeader extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
 
 export const Header: FC<IHeader> = ({ className }) => {
-  const { currentPage, setCurrentPage } = useRouter();
-  const { resetFormData } = useAddNoteForm();
+  const { currentPage, navigateTo } = useRouter();
+  const { resetFormData } = useNoteForm();
   const { filterValues, updateFilterValues, resetFilterValues } = useDiary();
 
   const handleClickLogo: MouseEventHandler<HTMLAnchorElement> = (e) => {
     e.preventDefault();
-    setCurrentPage('note-list');
+    navigateTo('note-list');
     resetFormData();
     resetFilterValues();
   };
 
   const handleClickBtnAdd: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
-    setCurrentPage('add-note');
+    navigateTo('add-note');
     resetFilterValues();
   };
-  
+
   const handleChangeText: ChangeEventHandler<HTMLInputElement> = (e) => {
     updateFilterValues({
       title: e.target.value,
     });
   };
-  
+
   const handleChangeSelect = (value: string) => {
     updateFilterValues({
       emoji: value,
@@ -78,6 +78,7 @@ export const Header: FC<IHeader> = ({ className }) => {
               className={styles['btn-clear']}
               onClick={handleClickBtnClear}
               aria-label="очистить фильтр"
+              bgColor="var(--button-grey)"
             >
               <Icon name="cross" />
             </Button>

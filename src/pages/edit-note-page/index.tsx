@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { NoteForm, Layout } from 'components';
 
-export const AddNotePage: FC = () => (
+export const EditNotePage: FC = () => (
   <Layout>
-    <NoteForm type='add'/>
+    <NoteForm type='edit'/>
   </Layout>
 );
