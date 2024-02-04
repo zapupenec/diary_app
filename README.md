@@ -1,7 +1,9 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/eace937a5b2eaa3abfed/maintainability)](https://codeclimate.com/github/zapupenec/diary_app/maintainability)
+
 EN | [RU](https://github.com/zapupenec/diary_app/blob/master/README-ru.md)
 
 # [Diary app](https://diary-app-self.vercel.app)
-description
+Notes application with the ability to add, edit, delete and search. Finding images for notes using the API.
 
 ![screenshot](./image/screenshot.png)
 
@@ -34,7 +36,7 @@ to the initial conditions for practice.
 ## Install for development
 Developed using Node.js v20.4.0.
 
-To work with the API, you need your secret key. Register at [unsplash.com](https://unsplash.com) and generate your key.
+To work with the API you need a secret key. Register at [unsplash.com](https://unsplash.com) and generate your key.
 
 Clone the repository locally.
 ```
